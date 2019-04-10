@@ -14,7 +14,7 @@ class Deals extends Resource
     {
         $endpoint = "https://api.hubapi.com/deals/v1/deal";
 
-        $options['json'] = key($deal) == 'properties' ? $deal : ['properties' => $deal];
+        $options['json'] = $deal;
 
         return $this->client->request('post', $endpoint, $options);
     }
@@ -28,7 +28,7 @@ class Deals extends Resource
     {
         $endpoint = "https://api.hubapi.com/deals/v1/deal/{$id}";
 
-        $options['json'] = key($deal) == 'properties' ? $deal : ['properties' => $deal];
+        $options['json'] = $deal;
 
         return $this->client->request('put', $endpoint, $options);
     }
